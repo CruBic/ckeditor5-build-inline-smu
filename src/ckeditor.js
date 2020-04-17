@@ -32,6 +32,7 @@ import TextTransformation from '@ckeditor/ckeditor5-typing/src/texttransformatio
 import Font from '@ckeditor/ckeditor5-font/src/font';
 import FontSize from '@ckeditor/ckeditor5-font/src/fontsize';
 import FontFamily from '@ckeditor/ckeditor5-font/src/fontfamily';
+import SimpleUploadAdapter from '@ckeditor/ckeditor5-upload/src/adapters/simpleuploadadapter';
 
 export default class InlineEditor extends InlineEditorBase {}
 
@@ -62,7 +63,8 @@ InlineEditor.builtinPlugins = [
 	TextTransformation,
 	Font,
 	FontSize,
-	FontFamily
+	FontFamily,
+	SimpleUploadAdapter
 ];
 
 // Editor configuration.
@@ -103,6 +105,8 @@ InlineEditor.defaultConfig = {
 			'mergeTableCells'
 		]
 	},
-	// This value must be kept in sync with the language defined in webpack.config.js.
+	simpleUpload: {
+		uploadUrl: 'https://dev.signmeup.com/api/homepage/UploadFile'
+	},
 	language: 'en'
 };
